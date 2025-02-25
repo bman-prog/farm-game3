@@ -642,7 +642,7 @@ function createStatusBar () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
     if (controller.B.isPressed()) {
         tiles.setTileAt(location, assets.tile`myTile7`)
-        info.changeScoreBy(100)
+        info.changeScoreBy(50)
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.largeHomeSign, function (sprite, otherSprite) {
@@ -1207,6 +1207,9 @@ let SmallHome: Sprite = null
 let LargeHome: Sprite = null
 let statusbar: StatusBarSprite = null
 spawnAll()
+game.showLongText("Welcome to the farm game!", DialogLayout.Center)
+game.showLongText("Exit the village to enter the crop field, there you will harvest crops for points. Use A in order to water the crops, and press B to harvest them. Use the lake at the bottom in order to refill your water meter.", DialogLayout.Center)
+game.showLongText("At the village, stand on one of the roman numeral signs in order to buy a house for a certain amount of points. Have fun!", DialogLayout.Center)
 game.onUpdateInterval(100, function () {
     if (controller.A.isPressed()) {
         if (statusbar.value >= 1) {
